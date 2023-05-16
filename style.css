@@ -16,6 +16,7 @@
     grid-template-columns: 1.3fr 0.7fr;
     padding: 1.5em;
     border-radius: 5px;
+    width: fit-content;
 }
 
 .left {
