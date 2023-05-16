@@ -15,7 +15,8 @@
     display: grid;
     grid-template-columns: 1.3fr 0.7fr;
     padding: 1.5em;
-    border-radius: 5px;
+    border-radius: 0.3125rem;
+    width: fit-content;
 }
 
 .left {
@@ -30,7 +31,7 @@
 .words h1 {
     color: var(--primary-dark);
     word-break: keep-all;
-    padding: 5px;
+    padding: 0.3125em;
 }
 
 .words h3 {
@@ -82,7 +83,7 @@
 
 .calculator {
     padding: 1em;
-    max-width: 320px;
+    max-width: 20em;
     background-color: var(--primary-light);
     border-radius: 15px 0px 10px 0;
     display: flex;
@@ -93,7 +94,7 @@
 
 .history {
     position: absolute;
-    font-size: 15px;
+    font-size: 0.9375em;
     color: rgb(46, 46, 46);
     top: 4;
     left: 0;
@@ -101,8 +102,9 @@
 }
 
 .showHistory {
+    margin-left: -1.5em;
     height: fit-content;
-    font-size: 0.6rem;
+    font-size: 0.6em;
     font-weight: 550;
     text-align: left;
     font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
@@ -110,6 +112,7 @@
 }
 
 .showHistory p {
+    margin-left: 5em;
     line-height: 0.2;
     margin: 0 0 0 0;
 }
@@ -122,8 +125,8 @@
 .display input {
     width: 100%;
     border: none;
-    border-radius: 3px;
-    height: 5rem;
+    border-radius: 0.1875em;
+    height: 5em;
     text-align: right;
     color: rgba(0, 0, 0, 0.671);
     box-shadow: 1px 1px 3px rgba(46, 46, 46, 0.2);
@@ -136,9 +139,9 @@
 }
 
 .buttons-grid input {
-    width: 46px;
-    height: 40px;
-    border-radius: 8px;
+    width: 2.875rem;
+    height: 2.5rem;
+    border-radius: 0.5em;
     border: none;
     cursor: pointer;
 }
@@ -166,17 +169,13 @@
     grid-column-end: 3;
     display: grid;
     grid-template-columns: repeat(4, minmax(0, 1fr));
-    gap: 5px;
+    gap: 0.3125em;
 }
 
 .horizontalFunctions>:first-child {
     background-color: var(--primary-light);
     font-weight: 700;
     font-style: bold;
-}
-
-.horizontalFunctions input {
-    font-size: 0.7rem;
 }
 
 .horizontalFunctions>:nth-child(2) {
@@ -204,7 +203,6 @@
 #multiplication {
     background-color: wheat;
     color: white;
-    height: 40px;
 }
 
 .verticalFunctions {
@@ -212,18 +210,17 @@
     grid-template-rows: (5, minmax(0, 1fr));
     justify-content: center;
     align-items: center;
-    margin-left: -10px;
+    margin-left: -0.625em;
     gap: 5px;
 }
 
 .verticalFunctions>* {
     background-color: wheat;
     color: white;
-    height: 40px;
+    height: 2.5em;
 }
 
 #equal {
-    height: 40px;
     background-color: white;
     color: black;
 }
@@ -233,7 +230,7 @@
     grid-row-end: 3;
     display: grid;
     grid-template-columns: repeat(3, minmax(0, 1fr));
-    gap: 5px;
+    gap: 0.3125em;
 }
 
 @media (max-width:1050px) {
@@ -245,12 +242,79 @@
 
 @media (max-width:920px) {
 
+    * {
+        font-size: 97%;
+        padding: .2em;
+    }
+
     .content-container {
         grid-template-columns: 1fr;
     }
 
-    .words p {
-        font-size: 0.9rem;
-        line-height: 1.4;
+    .calculator {
+        max-width: fit-content;
     }
+
+    .buttons-grid {
+        width: fit-content;
+    }
+
+    .display {
+        width: 14.3em;
+    }
+
+    .verticalFunctions {
+        margin-left: -0.05em;
+    }
+
+    .showHistory p {
+        line-height: 1;
+        background-color: var(--primary-light);
+        padding: .5em;
+        margin-left: -6em;
+    }
+}
+
+@media (max-width:500px) {
+
+    * {
+        padding: .2em;
+    }
+
+    .left {
+        flex-direction: column;
+    }
+
+    .content-container {
+        grid-template-columns: 1fr;
+    }
+
+    .calculator {
+        max-width: fit-content;
+    }
+
+    .buttons-grid {
+        width: fit-content;
+    }
+
+    .display {
+        width: 14.3em;
+    }
+
+    .showHistory p {
+        line-height: 1;
+        background-color: var(--primary-light);
+        padding: .5em;
+        margin-left: -6em;
+    }
+
+    .verticalFunctions {
+        margin-left: 0.02em;
+    }
+
+    .buttons-grid input {
+        width: 2.87em;
+        height: 2.5em;
+    }
+
 }
