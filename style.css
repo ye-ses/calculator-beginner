@@ -102,6 +102,7 @@
 }
 
 .showHistory {
+    margin-left: -1.5em;
     height: fit-content;
     font-size: 0.6em;
     font-weight: 550;
@@ -111,7 +112,7 @@
 }
 
 .showHistory p {
-    padding: .8em;
+    margin-left: 5em;
     line-height: 0.2;
     margin: 0 0 0 0;
 }
@@ -248,6 +249,29 @@
 
     .content-container {
         grid-template-columns: 1fr;
+    }
+
+    .calculator {
+        max-width: fit-content;
+    }
+
+    .buttons-grid {
+        width: fit-content;
+    }
+
+    .display {
+        width: 14.3em;
+    }
+
+    .verticalFunctions {
+        margin-left: -0.05em;
+    }
+
+    .showHistory p {
+        line-height: 1;
+        background-color: var(--primary-light);
+        padding: .5em;
+        margin-left: -6em;
     }
 }
 
