@@ -260,7 +260,7 @@
     }
 
     .display {
-        width: 14.3em;
+        width: 17em;
     }
 
     .verticalFunctions {
@@ -275,7 +275,7 @@
     }
 }
 
-@media (max-width:500px) {
+@media (max-width:550px) {
 
     * {
         padding: .2em;
