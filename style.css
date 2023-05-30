@@ -276,6 +276,7 @@
         line-height: 1;
         background-color: var(--primary-light);
         padding: .5em;
+        font-size: 1.1em;
         margin-left: -6em;
     }
 }
