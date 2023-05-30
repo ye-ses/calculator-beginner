@@ -47,8 +47,7 @@ const app = Vue.createApp({
     delete() {
       textBox.value = textBox.value.substring(0, textBox.value.length - 1);
     },
-    switcher(button) {
-      console.log(this.answerOn)
+    switcher(button) { 
       switch (button.class) {
         case "screenFunctions":
           if (button.id === "delete") {
@@ -115,8 +114,7 @@ const app = Vue.createApp({
       }
     },
     write(button) { 
-      if (this.answerOn) {
-        console.log('here')
+      if (this.answerOn) { 
         this.clear();
         this.answerOn = false;
       }
@@ -147,8 +145,7 @@ const app = Vue.createApp({
         this.history.push(hist);
       }
       textBox.value += r;
-      this.answerOn = true;  
-      console.log(this.answerOn)
+      this.answerOn = true;   
     },
   },
 });
