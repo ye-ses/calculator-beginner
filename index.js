@@ -15,15 +15,15 @@ const app = Vue.createApp({
         { value: "=", id: "equal", class: "operator" },
       ],
       numbers: [
-        { value: "9", id: "", class: "number" },
-        { value: "8", id: "", class: "number" },
         { value: "7", id: "", class: "number" },
-        { value: "6", id: "", class: "number" },
-        { value: "5", id: "", class: "number" },
+        { value: "8", id: "", class: "number" },
+        { value: "9", id: "", class: "number" },
         { value: "4", id: "", class: "number" },
-        { value: "3", id: "", class: "number" },
-        { value: "2", id: "", class: "number" },
+        { value: "5", id: "", class: "number" },
+        { value: "6", id: "", class: "number" },
         { value: "1", id: "", class: "number" },
+        { value: "2", id: "", class: "number" },
+        { value: "3", id: "", class: "number" },
         { value: "+/-", id: "plusMinus", class: "operator" },
         { value: "0", id: "zero", class: "number" },
         { value: ".", id: "period", class: "number" },
@@ -48,7 +48,11 @@ const app = Vue.createApp({
     delete() {
       textBox.value = textBox.value.substring(0, textBox.value.length - 1);
     },
+<<<<<<< HEAD
     switcher(button) {
+=======
+    switcher(button) { 
+>>>>>>> master
       switch (button.class) {
         case "screenFunctions":
           if (button.id === "delete") {
@@ -59,11 +63,15 @@ const app = Vue.createApp({
             }
           }
           break;
+<<<<<<< HEAD
         case "number":
           if (this.answerOn) {
             this.clear();
             this.answerOn = false;
           }
+=======
+        case "number": 
+>>>>>>> master
           this.write(button);
           break;
         case "operator":
@@ -74,10 +82,19 @@ const app = Vue.createApp({
             if (button.id === "equal") {
               this.evaluate();
             }else{
+<<<<<<< HEAD
             this.writeOperator(button);
             this.period = !this.period;
             }
           }
+=======
+            if (this.answerOn) { 
+              this.answerOn = false;
+            }
+            this.writeOperator(button);
+            this.period = !this.period;
+          }}
+>>>>>>> master
           break;
         default:
           break;
@@ -119,7 +136,11 @@ const app = Vue.createApp({
         }
       }
     },
-    write(button) {
+    write(button) { 
+      if (this.answerOn) { 
+        this.clear();
+        this.answerOn = false;
+      }
       if (button.id !== "period") {
         textBox.value += button.value;
       } else {
@@ -127,7 +148,7 @@ const app = Vue.createApp({
           textBox.value += button.value;
           this.period = !this.period;
         }
-      }
+      } 
     },
     toggleBrackets() {
       const value = bracket ? "(" : ")";
@@ -146,8 +167,13 @@ const app = Vue.createApp({
       } else {
         this.history.push(hist);
       }
+<<<<<<< HEAD
       textBox.value += this.answer;
       this.answerOn = true;
+=======
+      textBox.value += r;
+      this.answerOn = true;   
+>>>>>>> master
     },
   },
 });
