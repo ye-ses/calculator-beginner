@@ -15,15 +15,15 @@ const app = Vue.createApp({
         { value: "=", id: "equal", class: "operator" },
       ],
       numbers: [
-        { value: "9", id: "", class: "number" },
-        { value: "8", id: "", class: "number" },
         { value: "7", id: "", class: "number" },
-        { value: "6", id: "", class: "number" },
-        { value: "5", id: "", class: "number" },
+        { value: "8", id: "", class: "number" },
+        { value: "9", id: "", class: "number" },
         { value: "4", id: "", class: "number" },
-        { value: "3", id: "", class: "number" },
-        { value: "2", id: "", class: "number" },
+        { value: "5", id: "", class: "number" },
+        { value: "6", id: "", class: "number" },
         { value: "1", id: "", class: "number" },
+        { value: "2", id: "", class: "number" },
+        { value: "3", id: "", class: "number" },
         { value: "+/-", id: "plusMinus", class: "operator" },
         { value: "0", id: "zero", class: "number" },
         { value: ".", id: "period", class: "number" },
@@ -48,10 +48,7 @@ const app = Vue.createApp({
       textBox.value = textBox.value.substring(0, textBox.value.length - 1);
     },
     switcher(button) {
-      if (this.answerOn) {
-        this.clear();
-        this.answerOn = false;
-      }
+      console.log(this.answerOn)
       switch (button.class) {
         case "screenFunctions":
           if (button.id === "delete") {
@@ -62,17 +59,20 @@ const app = Vue.createApp({
             }
           }
           break;
-        case "number":
+        case "number": 
           this.write(button);
           break;
         case "operator":
           if (textBox.value !== "") {
             if (button.id === "equal") {
               this.evaluate();
+            }else{
+            if (this.answerOn) { 
+              this.answerOn = false;
             }
             this.writeOperator(button);
             this.period = !this.period;
-          }
+          }}
           break;
         default:
           break;
@@ -114,7 +114,12 @@ const app = Vue.createApp({
         }
       }
     },
-    write(button) {
+    write(button) { 
+      if (this.answerOn) {
+        console.log('here')
+        this.clear();
+        this.answerOn = false;
+      }
       if (button.id !== "period") {
         textBox.value += button.value;
       } else {
@@ -122,7 +127,7 @@ const app = Vue.createApp({
           textBox.value += button.value;
           this.period = !this.period;
         }
-      }
+      } 
     },
     toggleBrackets() {
       const value = bracket ? "(" : ")";
@@ -142,7 +147,8 @@ const app = Vue.createApp({
         this.history.push(hist);
       }
       textBox.value += r;
-      this.answerOn = true;
+      this.answerOn = true;  
+      console.log(this.answerOn)
     },
   },
 });
