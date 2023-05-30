@@ -48,11 +48,7 @@ const app = Vue.createApp({
     delete() {
       textBox.value = textBox.value.substring(0, textBox.value.length - 1);
     },
-<<<<<<< HEAD
     switcher(button) {
-=======
-    switcher(button) { 
->>>>>>> master
       switch (button.class) {
         case "screenFunctions":
           if (button.id === "delete") {
@@ -63,15 +59,7 @@ const app = Vue.createApp({
             }
           }
           break;
-<<<<<<< HEAD
-        case "number":
-          if (this.answerOn) {
-            this.clear();
-            this.answerOn = false;
-          }
-=======
         case "number": 
->>>>>>> master
           this.write(button);
           break;
         case "operator":
@@ -82,19 +70,12 @@ const app = Vue.createApp({
             if (button.id === "equal") {
               this.evaluate();
             }else{
-<<<<<<< HEAD
-            this.writeOperator(button);
-            this.period = !this.period;
-            }
-          }
-=======
             if (this.answerOn) { 
               this.answerOn = false;
             }
             this.writeOperator(button);
             this.period = !this.period;
           }}
->>>>>>> master
           break;
         default:
           break;
@@ -167,13 +148,8 @@ const app = Vue.createApp({
       } else {
         this.history.push(hist);
       }
-<<<<<<< HEAD
-      textBox.value += this.answer;
-      this.answerOn = true;
-=======
       textBox.value += r;
       this.answerOn = true;   
->>>>>>> master
     },
   },
 });
