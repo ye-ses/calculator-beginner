@@ -33,6 +33,7 @@ const app = Vue.createApp({
       period: true,
       showHistory: false,
       answerOn: false,
+      answer:'0',
       history: [],
     };
   },
@@ -47,7 +48,7 @@ const app = Vue.createApp({
     delete() {
       textBox.value = textBox.value.substring(0, textBox.value.length - 1);
     },
-    switcher(button) { 
+    switcher(button) {
       switch (button.class) {
         case "screenFunctions":
           if (button.id === "delete") {
@@ -62,6 +63,9 @@ const app = Vue.createApp({
           this.write(button);
           break;
         case "operator":
+          if (this.answerOn) { 
+            this.answerOn = false;
+          }
           if (textBox.value !== "") {
             if (button.id === "equal") {
               this.evaluate();
@@ -135,9 +139,9 @@ const app = Vue.createApp({
     evaluate() {
       const expression = textBox.value;
       this.clear();
-      const answer = math.evaluate(expression);
-      const r = math.round(answer * 1000000000) / 1000000000;
-      const hist = expression + " = " + r;
+      const initAnswer = math.evaluate(expression);
+      this.answer = math.round(initAnswer * 1000000000) / 1000000000;
+      const hist = expression + " = " + this.answer;
       if (this.history.length >= 5) {
         this.history.shift();
         this.history.push(hist);
